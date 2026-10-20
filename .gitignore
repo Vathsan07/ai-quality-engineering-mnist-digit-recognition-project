@@ -1,0 +1,17 @@
+﻿
+# Python virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Downloaded dataset
+data/
+
+# Local environment secrets
+.env
+
+# Temporary notebook checkpoints
+.ipynb_checkpoints/
