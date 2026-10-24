@@ -117,3 +117,25 @@ Run the notebook cells in order. The first dataset-loading run downloads MNIST.
 ## License
 
 Choose an appropriate license before distributing or reusing this project.
+
+## Phase 2: Model Robustness and Adversarial Testing
+
+**Status:** Implemented locally; results pending verification.
+
+Experiments:
+- Gaussian noise robustness
+- Image rotation
+- Brightness variation
+- FGSM adversarial attack
+- Accuracy degradation and failure analysis
+
+Generated artifacts:
+- `reports/robustness_metrics.csv`
+- `reports/robustness_metrics.json`
+- `reports/robustness_accuracy_comparison.png`
+- `reports/robustness_examples.png`
+- `reports/phase2_clean_confusion_matrix.png`
+- `reports/phase2_robustness_report.md`
+
+Results should be interpreted against the clean test-set baseline. The model is evaluated without adversarial retraining.
+

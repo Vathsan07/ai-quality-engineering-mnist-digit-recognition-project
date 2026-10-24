@@ -1,0 +1,111 @@
+{
+  "experiment": "MNIST Phase 2 - Robustness and Adversarial Testing",
+  "timestamp_utc": "2026-10-24T16:01:29.288106+00:00",
+  "seed": 42,
+  "model": "Phase 1 saved MNIST MLP",
+  "test_samples": 10000,
+  "clean_baseline": {
+    "accuracy": 0.9776,
+    "loss": 0.07824710904930253,
+    "correct": 9776
+  },
+  "experiments": [
+    {
+      "experiment": "Clean baseline",
+      "condition": "none",
+      "accuracy": 0.9776,
+      "loss": 0.07824710904930253,
+      "accuracy_drop_percentage_points": 0.0
+    },
+    {
+      "experiment": "Gaussian noise",
+      "condition": "sigma=0.1",
+      "accuracy": 0.9613,
+      "loss": 0.12380652411449701,
+      "accuracy_drop_percentage_points": 1.6299999999999981
+    },
+    {
+      "experiment": "Gaussian noise",
+      "condition": "sigma=0.2",
+      "accuracy": 0.8622,
+      "loss": 0.4433532502412796,
+      "accuracy_drop_percentage_points": 11.540000000000006
+    },
+    {
+      "experiment": "Gaussian noise",
+      "condition": "sigma=0.3",
+      "accuracy": 0.6566,
+      "loss": 1.2872577560424805,
+      "accuracy_drop_percentage_points": 32.10000000000001
+    },
+    {
+      "experiment": "Rotation",
+      "condition": "angle=-15",
+      "accuracy": 0.9246,
+      "loss": 0.2816002171039581,
+      "accuracy_drop_percentage_points": 5.300000000000004
+    },
+    {
+      "experiment": "Rotation",
+      "condition": "angle=15",
+      "accuracy": 0.9366,
+      "loss": 0.2327857699111104,
+      "accuracy_drop_percentage_points": 4.100000000000003
+    },
+    {
+      "experiment": "Rotation",
+      "condition": "angle=30",
+      "accuracy": 0.7526,
+      "loss": 1.035677022266388,
+      "accuracy_drop_percentage_points": 22.499999999999996
+    },
+    {
+      "experiment": "Brightness",
+      "condition": "factor=0.5",
+      "accuracy": 0.9777,
+      "loss": 0.09253613576889039,
+      "accuracy_drop_percentage_points": -0.009999999999998899
+    },
+    {
+      "experiment": "Brightness",
+      "condition": "factor=0.75",
+      "accuracy": 0.978,
+      "loss": 0.07449595363680274,
+      "accuracy_drop_percentage_points": -0.039999999999995595
+    },
+    {
+      "experiment": "Brightness",
+      "condition": "factor=1.25",
+      "accuracy": 0.9771,
+      "loss": 0.0813846664250712,
+      "accuracy_drop_percentage_points": 0.050000000000005596
+    },
+    {
+      "experiment": "FGSM",
+      "condition": "epsilon=0.05",
+      "accuracy": 0.5589,
+      "loss": 1.771678353357315,
+      "accuracy_drop_percentage_points": 41.870000000000005
+    },
+    {
+      "experiment": "FGSM",
+      "condition": "epsilon=0.1",
+      "accuracy": 0.0988,
+      "loss": 6.649501142883301,
+      "accuracy_drop_percentage_points": 87.88
+    },
+    {
+      "experiment": "FGSM",
+      "condition": "epsilon=0.2",
+      "accuracy": 0.0046,
+      "loss": 15.33253731689453,
+      "accuracy_drop_percentage_points": 97.3
+    }
+  ],
+  "notes": [
+    "Gaussian noise is randomly sampled; repeatability requires fixed perturbations.",
+    "Rotation and brightness settings are experimental stress conditions.",
+    "FGSM is an untargeted white-box adversarial attack.",
+    "No adversarial training or model fine-tuning was performed."
+  ]
+}
