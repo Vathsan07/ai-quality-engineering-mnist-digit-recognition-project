@@ -1,0 +1,108 @@
+{
+  "experiment": "Phase 3 - Performance Benchmarking and Quantization",
+  "timestamp_utc": "2026-11-02T18:26:33.465348+00:00",
+  "python_version": "3.11.9",
+  "pytorch_version": "2.14.1+cpu",
+  "torchvision_version": "0.29.1+cpu",
+  "device": "CPU",
+  "cpu_threads": 2,
+  "test_samples": 10000,
+  "batch_sizes": [
+    1,
+    8,
+    32,
+    128
+  ],
+  "latency_repeats": 500,
+  "throughput_repeats": 100,
+  "results": [
+    {
+      "model": "FP32",
+      "accuracy": 0.9776,
+      "size_mb": 0.4205141067504883,
+      "p50_latency_ms": 0.12619997141882777,
+      "p95_latency_ms": 0.26658504502847785,
+      "p99_latency_ms": 1.1005339829716814
+    },
+    {
+      "model": "INT8 dynamic",
+      "accuracy": 0.9783,
+      "size_mb": 0.11017131805419922,
+      "p50_latency_ms": 0.6557500455528498,
+      "p95_latency_ms": 1.1600299854762852,
+      "p99_latency_ms": 2.144143019104375
+    }
+  ],
+  "throughput": [
+    {
+      "batch_size": 1,
+      "elapsed_seconds": 0.01203049998730421,
+      "images_processed": 100,
+      "throughput_images_per_second": 8312.206483980717,
+      "average_batch_latency_ms": 0.1203049998730421,
+      "model": "FP32"
+    },
+    {
+      "batch_size": 8,
+      "elapsed_seconds": 0.017664700048044324,
+      "images_processed": 800,
+      "throughput_images_per_second": 45288.06024581033,
+      "average_batch_latency_ms": 0.17664700048044324,
+      "model": "FP32"
+    },
+    {
+      "batch_size": 32,
+      "elapsed_seconds": 0.023681399994529784,
+      "images_processed": 3200,
+      "throughput_images_per_second": 135127.14623034003,
+      "average_batch_latency_ms": 0.23681399994529784,
+      "model": "FP32"
+    },
+    {
+      "batch_size": 128,
+      "elapsed_seconds": 0.06531450001057237,
+      "images_processed": 12800,
+      "throughput_images_per_second": 195974.8600682556,
+      "average_batch_latency_ms": 0.6531450001057237,
+      "model": "FP32"
+    },
+    {
+      "batch_size": 1,
+      "elapsed_seconds": 0.06468670000322163,
+      "images_processed": 100,
+      "throughput_images_per_second": 1545.9128382653566,
+      "average_batch_latency_ms": 0.6468670000322163,
+      "model": "INT8 dynamic"
+    },
+    {
+      "batch_size": 8,
+      "elapsed_seconds": 0.07965430000331253,
+      "images_processed": 800,
+      "throughput_images_per_second": 10043.400042015697,
+      "average_batch_latency_ms": 0.7965430000331253,
+      "model": "INT8 dynamic"
+    },
+    {
+      "batch_size": 32,
+      "elapsed_seconds": 0.07052569999359548,
+      "images_processed": 3200,
+      "throughput_images_per_second": 45373.530504349415,
+      "average_batch_latency_ms": 0.7052569999359548,
+      "model": "INT8 dynamic"
+    },
+    {
+      "batch_size": 128,
+      "elapsed_seconds": 0.0762278001056984,
+      "images_processed": 12800,
+      "throughput_images_per_second": 167917.74106364558,
+      "average_batch_latency_ms": 0.7622780010569841,
+      "model": "INT8 dynamic"
+    }
+  ],
+  "notes": [
+    "Latency is measured for model inference without API or network overhead.",
+    "Model size represents the serialized state dictionary.",
+    "INT8 uses PyTorch dynamic quantization of supported Linear layers.",
+    "Performance results depend on hardware and runtime conditions."
+  ]
+}
