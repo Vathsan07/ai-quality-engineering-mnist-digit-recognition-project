@@ -139,3 +139,47 @@ Generated artifacts:
 
 Results should be interpreted against the clean test-set baseline. The model is evaluated without adversarial retraining.
 
+## Phase 4: API Validation and Security
+
+**Status:** Implemented locally; pending final verification.
+
+### Technology
+- FastAPI
+- PyTorch
+- Pydantic
+- Uvicorn
+- Python dotenv
+
+### API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/health` | Service health check |
+| POST | `/predict` | MNIST digit prediction |
+
+### Security and Quality Controls
+- API-key authentication
+- Request rate limiting
+- Input dimension validation
+- Pixel value validation
+- Error handling
+- Rotating application logs
+
+### Prediction Response
+- Predicted digit
+- Confidence score
+- Processing time
+
+### Local Execution
+
+```bash
+source .venv/Scripts/activate
+
+python -m uvicorn src.api.main:app --host 127.0.0.1 --port 8000 --reload
+```
+
+Swagger documentation:
+`http://127.0.0.1:8000/docs`
+
+### Security Limitations
+The current rate limiter is in-memory and intended for local single-process demonstrations. Production deployment requires HTTPS, shared rate-limiting storage, and secure secret management.

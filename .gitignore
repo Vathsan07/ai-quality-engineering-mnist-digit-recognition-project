@@ -12,6 +12,6 @@ data/
 
 # Local environment secrets
 .env
-
+logs/
 # Temporary notebook checkpoints
 .ipynb_checkpoints/
